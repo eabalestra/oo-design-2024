@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.easymock.EasyMock.*;
+import static org.mockito.Mockito.*;
 
 public class OutputTests {
 
@@ -15,7 +15,9 @@ public class OutputTests {
         List<Integer> numbers = List.of(1, 2, 3, 4, 5);
         MockOutput mock = new MockOutput();
         PrintFizzBuzz printer = new PrintFizzBuzz(mock);
+
         printer.printFizzBuzz(numbers);
+
         assertThat(mock.printIsInvoked()).isTrue();
         assertThat(mock.getPrintInput()).isEqualTo("1,2,Fizz,4,Buzz");
     }
@@ -28,7 +30,6 @@ public class OutputTests {
 
         // Especificar comportamiento esperado
         mock.print("1,2,Fizz,4,Buzz");
-        replay(mock);
 
         PrintFizzBuzz printer = new PrintFizzBuzz(mock);
         printer.printFizzBuzz(numbers);
@@ -36,7 +37,5 @@ public class OutputTests {
         // Verificar que se ejercita el comportamiento esperado
         verify(mock);
     }
-
-
 
 }

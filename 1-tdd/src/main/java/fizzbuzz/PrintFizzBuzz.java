@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PrintFizzBuzz {
 
-    Output output;
+    final Output output;
 
     public PrintFizzBuzz(Output output) {
         this.output = output;
