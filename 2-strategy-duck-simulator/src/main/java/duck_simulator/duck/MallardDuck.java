@@ -1,4 +1,7 @@
-package simulator;
+package duck_simulator.duck;
+
+import duck_simulator.fly.FlyWithWings;
+import duck_simulator.quack.Quack;
 
 public class MallardDuck extends Duck {
 

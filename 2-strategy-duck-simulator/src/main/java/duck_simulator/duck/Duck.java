@@ -1,4 +1,7 @@
-package simulator;
+package duck_simulator.duck;
+
+import duck_simulator.fly.FlyBehavior;
+import duck_simulator.quack.QuackBehavior;
 
 public abstract class Duck {
 
