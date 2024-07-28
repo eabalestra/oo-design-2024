@@ -1,12 +1,13 @@
-package weatherstation;
+package weatherstationpullversion;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import output.MockOutput;
-import weatherstation.observer.*;
+import weatherstationpullversion.observer.*;
+
+import java.util.Observer;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyFloat;
 import static org.mockito.Mockito.*;
 
 class WeatherStationTest {
@@ -25,29 +26,29 @@ class WeatherStationTest {
         statisticsDisplay = mock(StatisticsDisplay.class);
         forecastDisplay = mock(ForecastDisplay.class);
 
-        weatherData.registerObserver(currentConditionsDisplay);
-        weatherData.registerObserver(statisticsDisplay);
-        weatherData.registerObserver(forecastDisplay);
+        weatherData.addObserver(currentConditionsDisplay);
+        weatherData.addObserver(statisticsDisplay);
+        weatherData.addObserver(forecastDisplay);
     }
 
     @Test
     void addMultipleObserversAndVerifyUpdates() {
         weatherData.setMeasurements(80, 65, 30.4f);
 
-        verify(currentConditionsDisplay, times(1)).update(80, 65, 30.4f);
-        verify(statisticsDisplay, times(1)).update(80, 65, 30.4f);
-        verify(forecastDisplay, times(1)).update(80, 65, 30.4f);
+        verify(currentConditionsDisplay, times(1)).update(weatherData, null);
+        verify(statisticsDisplay, times(1)).update(weatherData, null);
+        verify(forecastDisplay, times(1)).update(weatherData, null);
     }
 
     @Test
     void removeObserverAndVerifyNoUpdate() {
-        weatherData.removeObserver(forecastDisplay);
+        weatherData.deleteObserver(forecastDisplay);
 
         weatherData.setMeasurements(80, 65, 30.4f);
 
-        verify(currentConditionsDisplay, times(1)).update(80, 65, 30.4f);
-        verify(statisticsDisplay, times(1)).update(80, 65, 30.4f);
-        verify(forecastDisplay, never()).update(anyFloat(), anyFloat(), anyFloat());
+        verify(currentConditionsDisplay, times(1)).update(weatherData, null);
+        verify(statisticsDisplay, times(1)).update(weatherData, null);
+        verify(forecastDisplay, never()).update(weatherData, null);
     }
 
     @Test
