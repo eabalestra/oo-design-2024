@@ -1,4 +1,7 @@
-package weatherstation;
+package weatherstation.observer;
+
+import weatherstation.DisplayElement;
+import weatherstation.WeatherData;
 
 public class ForecastDisplay implements Observer, DisplayElement {
 	private float currentPressure = 29.92f;  

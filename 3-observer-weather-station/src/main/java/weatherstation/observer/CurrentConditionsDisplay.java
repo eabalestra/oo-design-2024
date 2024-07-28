@@ -1,5 +1,8 @@
-package weatherstation;
-	
+package weatherstation.observer;
+
+import weatherstation.DisplayElement;
+import weatherstation.WeatherData;
+
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	private float temperature;
 	private float humidity;

@@ -1,5 +1,7 @@
 package weatherstation;
 
+import weatherstation.observer.Observer;
+
 public interface Subject {
 	public void registerObserver(Observer o);
 	public void removeObserver(Observer o);

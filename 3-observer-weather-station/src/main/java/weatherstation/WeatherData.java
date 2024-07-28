@@ -1,22 +1,24 @@
 package weatherstation;
 
+import weatherstation.observer.Observer;
+
 import java.util.*;
 
 public class WeatherData implements Subject {
-	private List<Observer> observers;
+	private List<weatherstation.observer.Observer> observers;
 	private float temperature;
 	private float humidity;
 	private float pressure;
 	
 	public WeatherData() {
-		observers = new ArrayList<Observer>();
+		observers = new ArrayList<weatherstation.observer.Observer>();
 	}
 	
-	public void registerObserver(Observer o) {
+	public void registerObserver(weatherstation.observer.Observer o) {
 		observers.add(o);
 	}
 	
-	public void removeObserver(Observer o) {
+	public void removeObserver(weatherstation.observer.Observer o) {
 		observers.remove(o);
 	}
 	

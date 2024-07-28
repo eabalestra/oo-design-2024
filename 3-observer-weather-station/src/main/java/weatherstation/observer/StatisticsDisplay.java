@@ -1,4 +1,7 @@
-package weatherstation;
+package weatherstation.observer;
+
+import weatherstation.DisplayElement;
+import weatherstation.WeatherData;
 
 public class StatisticsDisplay implements Observer, DisplayElement {
 	private float maxTemp = 0.0f;
