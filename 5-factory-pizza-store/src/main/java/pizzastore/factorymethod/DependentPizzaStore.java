@@ -1,5 +1,14 @@
 package pizzastore.factorymethod;
 
+import pizzastore.factorymethod.chapizza.ChicagoStyleCheesePizza;
+import pizzastore.factorymethod.chapizza.ChicagoStyleClamPizza;
+import pizzastore.factorymethod.chapizza.ChicagoStylePepperoniPizza;
+import pizzastore.factorymethod.chapizza.ChicagoStyleVeggiePizza;
+import pizzastore.factorymethod.nypizza.NYStyleCheesePizza;
+import pizzastore.factorymethod.nypizza.NYStyleClamPizza;
+import pizzastore.factorymethod.nypizza.NYStylePepperoniPizza;
+import pizzastore.factorymethod.nypizza.NYStyleVeggiePizza;
+
 public class DependentPizzaStore {
  
 	public Pizza createPizza(String style, String type) {

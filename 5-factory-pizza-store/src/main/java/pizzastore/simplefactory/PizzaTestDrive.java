@@ -1,5 +1,7 @@
 package pizzastore.simplefactory;
 
+import pizzastore.simplefactory.pizza.Pizza;
+
 public class PizzaTestDrive {
  
 	public static void main(String[] args) {
@@ -11,6 +13,10 @@ public class PizzaTestDrive {
 		System.out.println(pizza);
  
 		pizza = store.orderPizza("veggie");
+		System.out.println("We ordered a " + pizza.getName() + "\n");
+		System.out.println(pizza);
+
+		pizza = store.orderPizza("argentinean");
 		System.out.println("We ordered a " + pizza.getName() + "\n");
 		System.out.println(pizza);
 	}

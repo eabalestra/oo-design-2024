@@ -1,5 +1,7 @@
 package pizzastore.simplefactory;
 
+import pizzastore.simplefactory.pizza.*;
+
 public class SimplePizzaFactory {
 
 	public Pizza createPizza(String type) {
@@ -13,6 +15,8 @@ public class SimplePizzaFactory {
 			pizza = new ClamPizza();
 		} else if (type.equals("veggie")) {
 			pizza = new VeggiePizza();
+		} else if (type.equals("argentinean")) {
+			pizza = new ArgentineanPizza();
 		}
 		return pizza;
 	}

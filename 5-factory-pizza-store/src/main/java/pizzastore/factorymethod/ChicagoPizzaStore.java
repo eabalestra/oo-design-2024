@@ -1,5 +1,10 @@
 package pizzastore.factorymethod;
 
+import pizzastore.factorymethod.chapizza.ChicagoStyleCheesePizza;
+import pizzastore.factorymethod.chapizza.ChicagoStyleClamPizza;
+import pizzastore.factorymethod.chapizza.ChicagoStylePepperoniPizza;
+import pizzastore.factorymethod.chapizza.ChicagoStyleVeggiePizza;
+
 public class ChicagoPizzaStore extends PizzaStore {
 
 	Pizza createPizza(String item) {

@@ -1,5 +1,7 @@
 package pizzastore.simplefactory;
 
+import pizzastore.simplefactory.pizza.Pizza;
+
 public class PizzaStore {
 	SimplePizzaFactory factory;
  
