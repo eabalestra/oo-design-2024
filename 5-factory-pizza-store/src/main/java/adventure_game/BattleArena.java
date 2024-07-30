@@ -11,9 +11,7 @@ public class BattleArena implements Subject {
     Character defender;
     List<Observer> observers;
 
-    public BattleArena(Character firstCharacter, Character secondCharacter) {
-        this.attacker = firstCharacter;
-        this.defender = secondCharacter;
+    public BattleArena() {
         observers = new ArrayList<>();
     }
 
@@ -26,6 +24,11 @@ public class BattleArena implements Subject {
         } else {
             throw new IllegalStateException("One of the characters is dead. Battle cannot be started.");
         }
+    }
+
+    public void setCharacters(Character attacker, Character defender) {
+        this.attacker = attacker;
+        this.defender = defender;
     }
 
     private void fight() {

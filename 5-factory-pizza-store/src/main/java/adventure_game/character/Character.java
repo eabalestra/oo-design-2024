@@ -1,6 +1,7 @@
 package adventure_game.character;
 
 import adventure_game.FightStyle;
+import adventure_game.gem.Gem;
 import adventure_game.weapon.FistPunch;
 import adventure_game.weapon.Weapon;
 
@@ -20,7 +21,9 @@ public abstract class Character {
     }
 
     public void setWeapon(Weapon weapon) {
-        if (weapon.getFightStyle() != this.fightStyle)
+        if (weapon == null)
+            throw new IllegalArgumentException("Weapon can't be null");
+        if (!(weapon instanceof Gem) && weapon.getFightStyle() != this.fightStyle)
             throw new IllegalArgumentException(this.getClass().getSimpleName()+" can't use this weapon "+"because it is not compatible with his fight style");
         this.weapon = weapon;
     }
