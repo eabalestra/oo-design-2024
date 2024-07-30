@@ -1,4 +1,4 @@
-package starbuzz;
+package decorator.starbuzz;
 
 import decorator.starbuzz.beverage.Beverage;
 import decorator.starbuzz.BeverageFactory;

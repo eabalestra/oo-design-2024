@@ -1,4 +1,4 @@
-package caesarCracker;
+package decorator.caesarCracker;
 
 
 import decorator.caesarCracker.io.*;
