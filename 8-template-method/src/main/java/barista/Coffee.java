@@ -7,4 +7,9 @@ public class Coffee extends CaffeineBeverage {
 	public void addCondiments() {
 		System.out.println("Adding Sugar and Milk");
 	}
+
+	@Override
+	boolean customerWantsCondiments() {
+		return true;
+	}
 }
