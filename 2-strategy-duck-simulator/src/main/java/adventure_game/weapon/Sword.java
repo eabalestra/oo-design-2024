@@ -2,16 +2,21 @@ package adventure_game.weapon;
 
 import adventure_game.FightStyle;
 
-public class Sword implements Weapon {
-    FightStyle fightStyle = FightStyle.MELEE;
+public class Sword extends Weapon {
+    private final int SWORD_DAMAGE = 10;
+    private final int SWORD_MAX_GEMS = 2;
 
+    public Sword() {
+        this.fightStyle =  FightStyle.MELEE;
+    }
     @Override
     public int useWeapon() {
-        return 10;
+        return SWORD_DAMAGE;
     }
 
     @Override
-    public FightStyle getFightStyle() {
-        return fightStyle;
+    public int maxGems() {
+        return SWORD_MAX_GEMS;
     }
+
 }

@@ -2,16 +2,22 @@ package adventure_game.weapon;
 
 import adventure_game.FightStyle;
 
-public class Bow implements Weapon {
-    FightStyle fightStyle = FightStyle.RANGED;
+public class Bow extends Weapon {
+    private final int BOW_DAMAGE = 15;
+    private final int BOW_MAX_GEMS = 2;
+
+    public Bow() {
+        this.fightStyle = FightStyle.RANGED;
+    }
+
+    @Override
+    public int maxGems() {
+        return BOW_MAX_GEMS;
+    }
 
     @Override
     public int useWeapon() {
-        return 15;
+        return BOW_DAMAGE;
     }
 
-    @Override
-    public FightStyle getFightStyle() {
-        return fightStyle;
-    }
 }
