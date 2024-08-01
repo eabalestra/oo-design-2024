@@ -1,5 +1,6 @@
 package barista;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 
@@ -7,10 +8,16 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 class CaffeineBeverageTest {
+    CaffeineBeverage beverage;
+
+    @BeforeEach
+    void setUp() {
+        beverage = mock(CaffeineBeverage.class, CALLS_REAL_METHODS);
+    }
 
     @Test
     void prepareRecipeExecutesInOrder() {
-        CaffeineBeverage beverage = mock(CaffeineBeverage.class, CALLS_REAL_METHODS);
+        doReturn(true).when(beverage).customerWantsCondiments();
         doNothing().when(beverage).brew();
         doNothing().when(beverage).addCondiments();
 
@@ -25,13 +32,11 @@ class CaffeineBeverageTest {
 
     @Test
     void boilWaterPrintsMessage() {
-        CaffeineBeverage beverage = mock(CaffeineBeverage.class, CALLS_REAL_METHODS);
         assertDoesNotThrow(beverage::boilWater);
     }
 
     @Test
     void pourInCupPrintsMessage() {
-        CaffeineBeverage beverage = mock(CaffeineBeverage.class, CALLS_REAL_METHODS);
         assertDoesNotThrow(beverage::pourInCup);
     }
 }
