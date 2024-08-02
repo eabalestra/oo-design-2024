@@ -8,9 +8,9 @@ public class PizzaTestDrive {
  
 	public static void main(String[] args) {
 		PizzaFactory chaFactory = new CHAPizzaFactory();
-		PizzaStore chicagoStore = new PizzaStore(chaFactory);
-
 		PizzaFactory nyFactory = new NYPizzaFactory();
+
+		PizzaStore chicagoStore = new PizzaStore(chaFactory);
 		PizzaStore nyStore = new PizzaStore(nyFactory);
 
 		Pizza pizza = nyStore.orderPizza("cheese");

@@ -5,7 +5,7 @@ import adventure_game.factory.GameV2Factory;
 
 import java.util.List;
 
-public class Main {
+public class AdventureGameLauncher {
     public static void main(String[] args) {
         GameFactory factory = new GameV2Factory();
         GameController game = new GameController(factory);
