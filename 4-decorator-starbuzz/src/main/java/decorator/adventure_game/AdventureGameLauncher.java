@@ -7,7 +7,7 @@ import decorator.adventure_game.observer.ConsoleLogger;
 import decorator.adventure_game.observer.FileLogger;
 import decorator.adventure_game.observer.StatisticsLogger;
 
-public class Main {
+public class AdventureGameLauncher {
     public static void main(String[] args) {
         WeaponFactory weaponFactory = new WeaponFactory();
 
@@ -18,6 +18,7 @@ public class Main {
         firstCharacter.setWeapon(weaponFactory.createGem("Diamond", firstCharacter.getWeapon()));
 
         BattleArena battleArena = new BattleArena(firstCharacter, secondCharacter);
+
         battleArena.registerObserver(new ConsoleLogger());
         battleArena.registerObserver(new FileLogger("battle_log.txt"));
         battleArena.registerObserver(new StatisticsLogger());

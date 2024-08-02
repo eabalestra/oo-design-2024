@@ -8,25 +8,41 @@ import decorator.starbuzz.condiment.Mocha;
 import decorator.starbuzz.condiment.Soy;
 import decorator.starbuzz.condiment.Whip;
 
+import java.util.List;
+
 public class StarbuzzCoffee {
- 
-	public static void main(String args[]) {
-		Beverage beverage = new Espresso(Size.GRANDE);
-		System.out.println(beverage.getDescription() 
-				+ " $" + beverage.cost());
- 
-		Beverage beverage2 = new DarkRoast(Size.GRANDE);
-		beverage2 = new Mocha(beverage2);
-		beverage2 = new Mocha(beverage2);
-		beverage2 = new Whip(beverage2);
-		System.out.println(beverage2.getDescription() 
-				+ " $" + beverage2.cost());
- 
-		Beverage beverage3 = new HouseBlend(Size.GRANDE);
-		beverage3 = new Soy(beverage3);
-		beverage3 = new Mocha(beverage3);
-		beverage3 = new Whip(beverage3);
-		System.out.println(beverage3.getDescription() 
-				+ " $" + beverage3.cost());
+	BeverageFactory factory;
+
+	public StarbuzzCoffee(BeverageFactory factory) {
+		this.factory = factory;
+	}
+
+	public void takeOrder(String beverageType, Size size, List<String> condiments) {
+		orderTaken();
+		coffeeReady();
+
+		Beverage beverage = factory.createBeverage(beverageType, size);
+		beverage = applyCondiments(condiments, beverage);
+
+		beverageDetails(beverage);
+	}
+
+	private static void beverageDetails(Beverage beverage) {
+		System.out.println(beverage.getDescription() + " $" + beverage.cost());
+	}
+
+	private static void coffeeReady() {
+		System.out.println("Coffee is ready");
+	}
+
+	private static void orderTaken() {
+		System.out.println("Order taken");
+	}
+
+	private Beverage applyCondiments(List<String> condiments, Beverage beverage) {
+		for (String condiment : condiments) {
+			beverage = factory.createCondiment(beverage, condiment);
+		}
+		return beverage;
 	}
 }
