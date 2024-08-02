@@ -8,7 +8,6 @@ import duck_simulator.quack.Quack;
 import java.util.List;
 
 public class DuckSimulator {
- 
 	public static void main(String[] args) {
 		Duck mallard = new MallardDuck();
 		mallard.performQuack();
@@ -27,7 +26,8 @@ public class DuckSimulator {
 		mute.performQuack();
 
 		System.out.println("\n[DUCKS FLOCK]");
-		DucksFlock ducksFlock = new DucksFlock(List.of(mallard, model, mute));
+		List<Duck> duckList = List.of(mallard, model, mute);
+		DucksFlock ducksFlock = new DucksFlock(duckList);
 		ducksFlock.performFly();
 		ducksFlock.performQuack();
 	}
