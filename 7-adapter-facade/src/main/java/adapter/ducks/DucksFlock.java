@@ -30,4 +30,8 @@ public class DucksFlock {
         }
     }
 
+    public List<Duck> getDuckList() {
+        return duckList;
+    }
+
 }
