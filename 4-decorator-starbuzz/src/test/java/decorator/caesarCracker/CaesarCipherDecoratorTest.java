@@ -16,7 +16,7 @@ public class CaesarCipherDecoratorTest {
         in = new BufferedInputStream(
                 new FileInputStream("test_hello_world.txt"));
 
-        in = new CesarEncryptDecorator(in, 4);
+        in = new CaesarEncryptDecorator(in, 4);
         String result = getString(in);
 
         String expectedEncode = "lspe qyrhs";
@@ -31,7 +31,7 @@ public class CaesarCipherDecoratorTest {
                 )
         );
 
-        in = new CesarDecryptDecorator(in, 4);
+        in = new CaesarDecryptDecorator(in, 4);
         String result = getString(in);
 
         String expectedDecode = "hola mundo";
@@ -55,7 +55,7 @@ public class CaesarCipherDecoratorTest {
     @Test
     public void testEncryptedAndOriginalFilesHaveSameLineCount() throws IOException {
         InputStream originalIn = new BufferedInputStream(new FileInputStream("test.txt"));
-        InputStream encryptedIn = new CesarEncryptDecorator(new BufferedInputStream(new FileInputStream("test.txt")), 4);
+        InputStream encryptedIn = new CaesarEncryptDecorator(new BufferedInputStream(new FileInputStream("test.txt")), 4);
 
         LineCountDecorator originalCounter = new LineCountDecorator(originalIn);
         LineCountDecorator encryptedCounter = new LineCountDecorator(encryptedIn);
