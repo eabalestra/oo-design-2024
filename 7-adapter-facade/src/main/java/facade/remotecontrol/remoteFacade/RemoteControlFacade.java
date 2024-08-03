@@ -3,31 +3,49 @@ package facade.remotecontrol.remoteFacade;
 import facade.remotecontrol.remote.*;
 
 public class RemoteControlFacade {
-    CeilingFan ceilingFan;
-    Computer computer;
-    Light light;
-    GarageDoor garageDoor;
+    RemoteControl remoteControl;
 
     public RemoteControlFacade(CeilingFan ceilingFan, Computer computer, Light light, GarageDoor garageDoor) {
-        this.ceilingFan = ceilingFan;
-        this.computer = computer;
-        this.light = light;
-        this.garageDoor = garageDoor;
+        remoteControl = new RemoteControl();
+        LightOnCommand lightOn =
+                new LightOnCommand(light);
+        LightOffCommand lightOff =
+                new LightOffCommand(light);
+
+        ComputerOnCommand computerOn =
+                new ComputerOnCommand(computer);
+        ComputerOffCommand computerOff =
+                new ComputerOffCommand(computer);
+
+        CeilingFanOnCommand ceilingFanOn =
+                new CeilingFanOnCommand(ceilingFan);
+        CeilingFanOffCommand ceilingFanOff =
+                new CeilingFanOffCommand(ceilingFan);
+
+        GarageDoorUpCommand garageDoorUp =
+                new GarageDoorUpCommand(garageDoor);
+        GarageDoorDownCommand garageDoorDown =
+                new GarageDoorDownCommand(garageDoor);
+
+        remoteControl.setCommand(0, lightOn, lightOff);
+        remoteControl.setCommand(1, computerOn, computerOff);
+        remoteControl.setCommand(2, ceilingFanOn, ceilingFanOff);
+        remoteControl.setCommand(3, garageDoorUp, garageDoorDown);
     }
 
     public void exitHome() {
         System.out.println("----------Exiting home----------");
-        ceilingFan.off();
-        computer.off();
-        light.off();
-        garageDoor.up();
+        remoteControl.offButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(1);
+        remoteControl.offButtonWasPushed(2);
+        remoteControl.onButtonWasPushed(3);
     }
 
     public void returnHome() {
         System.out.println("----------Returning home----------");
-        ceilingFan.high();
-        computer.on();
-        light.on();
-        garageDoor.down();
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.onButtonWasPushed(1);
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.offButtonWasPushed(3);
     }
 }
