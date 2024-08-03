@@ -2,7 +2,7 @@ package decorator.caesarCracker.io;
 
 import java.io.*;
 
-public class CaesarEncoderTestDrive {
+public class CaesarEncryptTestDrive {
     public static void main(String[] args) throws IOException {
         int c;
         InputStream in = null;
