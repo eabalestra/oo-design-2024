@@ -8,12 +8,17 @@ public class AddNewLineCommand implements Command {
 
     public AddNewLineCommand(Buffer buffer) {
         this.buffer = buffer;
+        this.scanner = new Scanner(System.in); // Default to System.in
+    }
+
+    public AddNewLineCommand(Buffer buffer, Scanner scanner) {
+        this.buffer = buffer;
+        this.scanner = scanner;
     }
 
     public void execute() {
         System.out.println("Enter text to be added to the buffer:");
         String input = scanner.nextLine();
-
         buffer.text.add(input);
     }
 

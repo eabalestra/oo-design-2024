@@ -1,4 +1,6 @@
-package remotecontrol.remotewithundo;
+package remotecontrol.remotewithundo.clients;
+
+import remotecontrol.remotewithundo.*;
 
 public class RemoteLoader {
  
@@ -7,9 +9,9 @@ public class RemoteLoader {
  
 		Light livingRoomLight = new Light("Living Room");
  
-		LightOnCommand livingRoomLightOn = 
+		LightOnCommand livingRoomLightOn =
 				new LightOnCommand(livingRoomLight);
-		LightOffCommand livingRoomLightOff = 
+		LightOffCommand livingRoomLightOff =
 				new LightOffCommand(livingRoomLight);
  
 		remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);

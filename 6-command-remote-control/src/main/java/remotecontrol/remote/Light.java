@@ -1,17 +1,26 @@
 package remotecontrol.remote;
 
 public class Light {
-	String location = "";
+	String location;
+	int level;
 
 	public Light(String location) {
 		this.location = location;
 	}
 
 	public void on() {
-		System.out.println(location + " light is on");
+		level = 100;
+		System.out.println("Light is on");
 	}
 
 	public void off() {
-		System.out.println(location + " light is off");
+		level = 0;
+		System.out.println("Light is off");
 	}
+
+
+	public int getLevel() {
+		return level;
+	}
+
 }

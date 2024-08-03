@@ -1,4 +1,4 @@
-package remotecontrol;
+package remotecontrol.remotewithundo.clients;
 
 import remotecontrol.remotewithundo.*;
 

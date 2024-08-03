@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import remotecontrol.remote.Command;
-import remotecontrol.remote.ComputerOffCommand;
-import remotecontrol.remote.ComputerOnCommand;
+
 import remotecontrol.remotewithundo.Computer;
 import remotecontrol.remotewithundo.ComputerOffCommandUndo;
 import remotecontrol.remotewithundo.ComputerOnCommandUndo;

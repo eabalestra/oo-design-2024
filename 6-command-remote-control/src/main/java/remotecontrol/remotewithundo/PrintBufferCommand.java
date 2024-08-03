@@ -13,6 +13,7 @@ public class PrintBufferCommand implements Command {
     }
 
     public void execute() {
+        System.out.println("-------------------Printing buffer-------------------");
         for (int i = 0; i < buffer.text.size(); i++) {
             String input = buffer.text.get(i);
             System.out.println(input);
